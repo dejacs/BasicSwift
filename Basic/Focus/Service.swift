@@ -20,6 +20,15 @@ class Service {
         fetchAnotherSomething(id: 2) { stringRetornada in
             print(stringRetornada)
         }
+        
+        fetchSomethingElse(id: 3) { resultado in
+            switch resultado {
+            case .success(let contact):
+                print("Trabalho com o retorno de sucesso e o objeto contact")
+            case .failure(let error):
+                print("Redireciono para uma tela de erro ou algo do tipo")
+            }
+        }
     }
     
     func fetchSomething(completou: () -> Void) {
