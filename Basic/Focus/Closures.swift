@@ -24,24 +24,32 @@ class Service {
         fetchSomethingElse(id: 3) { resultado in
             switch resultado {
             case .success(let contact):
-                print("Trabalho com o retorno de sucesso e o objeto contact")
+                print("Trabalho com o retorno de sucesso e o objeto contact \(contact)")
             case .failure(let error):
-                print("Redireciono para uma tela de erro ou algo do tipo")
+                print("Redireciono para uma tela de erro ou algo do tipo \(error.localizedDescription)")
             }
         }
+        
+        let alsoIncrementByTen = incrementByTen
+        alsoIncrementByTen()
+
+        incrementByTen()
+    }
+    
+    var value = 0
+    
+    func incrementByTen() {
+        value += 10
     }
     
     func fetchSomething(completou: () -> Void) {
-        print("kjhvhjhj")
-        let islala = true
-        
+        // faz alguma lógica
         completou()
     }
     
     func fetchOtherSomething(completou: (String) -> Void) {
-        print("kjhvhjhj")
-        let islala = true
         let umaVariavel = "Retorno de um serviço"
+        // faz alguma lógica
         completou(umaVariavel)
     }
     
